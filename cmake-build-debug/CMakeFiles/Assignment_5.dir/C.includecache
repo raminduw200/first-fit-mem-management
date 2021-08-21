@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c
+stdio.h
+-
+stdbool.h
+-
+malloc.h
+-
+

@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/Assignment_5.dir/main.c.o -o Assignment_5 

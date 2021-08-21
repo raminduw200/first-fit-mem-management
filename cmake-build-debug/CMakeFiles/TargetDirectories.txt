@@ -1,0 +1,3 @@
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles/Assignment_5.dir
