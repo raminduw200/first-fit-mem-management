@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <malloc.h>
+#include <string.h>
 
 #define MEMORY 2560
 int remaining_mem = 2560;
-
-//void firstFit(struct Node *head_, char *process_id_, int size_);
-//void showTasks(struct Node *head_);
-//struct Node* getProcess(struct Node *head_, char* process_id_);
 
 // Node = Process/ Job
 struct Node {
@@ -28,8 +25,12 @@ struct Node {
  *                          memory for OS. If OS is 400K, start of the p1 (only process) will be 400k.
  *            size_       - size of the process.
  */
-void firstFit(struct Node *head_, char *process_id_, int size_) {
-    if (remaining_mem - size_ > 0) {
+void firstFit(struct Node *head_, char *process_id__, int size_) {
+    char *process_id_ = malloc(strlen(process_id__) + 1);
+    strcpy(process_id_, process_id__);
+
+//    Check the memory is full or not.
+    if (remaining_mem - size_ >= 0) {
         struct Node *temp = head_;
         struct Node *new_node = (struct Node *) malloc(sizeof(struct Node));
 
@@ -37,8 +38,18 @@ void firstFit(struct Node *head_, char *process_id_, int size_) {
         new_node->size = size_;
         new_node->next = NULL;
 
+/*      Check place where the new_node should be(where the process should be in the memory)
+ *      let new_node = P2 and goes between P1 and P3
+ *      OS ------> P1 ------> P3
+ *      while loop assign the P1 to the temp since its the place where new node belongs
+ *                                  4.temp -> next = new_node               1.new_node -> next = temp -> next
+ *                                |--------------------------->|            |--------------------------->|
+ *      OS -------------> P1 (temp)                             P2 (new_node)                             P3
+ *                                |<---------------------------|            |<---------------------------|
+ *                                  2.new_node -> prev = temp               3.temp -> next -> prev = new_node
+ */
         while (temp->next != NULL) {
-            if (temp->next->start - (temp->start + temp->size) > size_) {
+            if (temp->next->start - (temp->start + temp->size) >= size_) {
                 new_node->start = temp->start + temp->size;
                 new_node->next = temp->next;
                 new_node->prev = temp;
@@ -62,29 +73,37 @@ void firstFit(struct Node *head_, char *process_id_, int size_) {
             new_node->start = temp->start + temp->size;
             temp->next = new_node;
             new_node->prev = temp;
-        } else {
-            printf("[ERROR] Ran out of memory.\n");
+        }
+        else {
+            printf("\n\t\t[ERROR] Ran out of memory.\n");
         }
     } else {
-        printf("[ERROR] Ran out of memory.\n");
+        printf("\n\t\t[ERROR] Ran out of memory.\n");
     }
 }
 
+
+/*
+ * @function : Print a snapshot of the memory
+ * @return   : void
+ *             print the snapshot
+ * @param    : head_       - head of the linked list
+ */
 void showTasks(struct Node *head_) {
     struct Node *temp = head_;
-    printf("Process\t\tSize\t\t\n");
+    printf("+---------------------------------------------------------------------------------------+\n");
+    printf("|\tStart Address\t|\t\tProcess\t\t|\t\tSize\t\t|\t\t\n");
+    printf("+---------------------------------------------------------------------------------------+\n");
+    printf("|\t%dK\t\t|\t%s\t|\t\t%dK\t\t|\t\t\n", head_->start, head_->process_id, head_->size);
+    printf("+---------------------------------------------------------------------------------------+\n");
+
     while (temp->next != NULL) {
-        printf("%s\n", temp->process_id);
         temp = temp->next;
+        printf("|\t%dK\t\t|\t\t%s\t\t|\t\t%dK\t\t|\t\t\n", temp->start, temp->process_id, temp->size);
+        printf("+---------------------------------------------------------------------------------------+\n");
     }
-    printf("%s\n", temp->process_id);
-//    printf("+++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-//    while (temp->prev != NULL) {
-//        printf("%s\n", temp->process_id);
-//        temp = temp->prev;
-//    }
-//    printf("%s\n", temp->process_id);
 }
+
 
 /*
  * @function : Check a given process (node) exists
@@ -93,7 +112,7 @@ void showTasks(struct Node *head_) {
  * @param    : head_       - head of the linked list
  *             process_id_ - process id : example : p1, p2
  */
-struct Node* getProcess(struct Node *head_, char* process_id_){
+struct Node* getProcess(struct Node *head_, char *process_id_){
     struct Node* temp = head_;
 
     if(head_->process_id == process_id_)
@@ -101,12 +120,13 @@ struct Node* getProcess(struct Node *head_, char* process_id_){
 
     while (temp->next != NULL){
         temp = temp->next;
-        if(temp->process_id == process_id_)
+        if(strcmp(temp->process_id, process_id_) == 0)
             return temp;
     }
 
     return NULL;
 }
+
 
 /*
  * @function : Remove a process (Delete a node from the linked list)
@@ -114,17 +134,13 @@ struct Node* getProcess(struct Node *head_, char* process_id_){
  * @param    : head_       - head of the linked list
  *             process_id_ - process id : example : p1, p2
  */
-void removeProcess(struct Node *head_, char* process_id_){
+void removeProcess(struct Node *head_, char* process_id_) {
     struct Node* deleteNode = getProcess(head_, process_id_);
 
-    if (deleteNode == head_) {
-        printf("[ERROR] Cannot terminate the Operating System.\n");
-    } else if (deleteNode != NULL && deleteNode->next !=NULL){
+    if (deleteNode == head_){
+        printf("\n\t\t[ERROR] Cannot terminate the Operating System.\n");
+    } else if (deleteNode->next !=NULL){
         deleteNode->next->prev = deleteNode->prev;
-//        printf("delete node next prev: %s\n", deleteNode->next->prev->process_id);
-//        printf("delete node prev: %s\n", deleteNode->prev->process_id);
-//        printf("delete node : %s\n", deleteNode->process_id);
-//        printf("delete node next : %s\n", deleteNode->next->process_id);
         deleteNode->prev->next = deleteNode->next;
         free(deleteNode);
     } else if(deleteNode->next == NULL){
@@ -134,8 +150,12 @@ void removeProcess(struct Node *head_, char* process_id_){
 }
 
 
+// main thread
 int main() {
-//    Head will be the OS.
+    int option;
+    int process_size;
+
+    //    Head will be the OS.
     struct Node head;
     head.process_id = "Operating_System";
     head.start = 0;
@@ -143,17 +163,48 @@ int main() {
     head.next = NULL;
     head.prev = NULL;
 
-    firstFit(&head, "P1", 400);
-    firstFit(&head, "P2", 500);
-    firstFit(&head, "P3", 600);
-    removeProcess(&head, "P2");
-    firstFit(&head, "P4", 200);
-    firstFit(&head, "P5", 100);
-    firstFit(&head, "P6", 100);
-    removeProcess(&head, "P5");
-    firstFit(&head, "P7", 200);
-    showTasks(&head);
-    printf("--------------\n");
-    showTasks(&head);
+    printf("\n+---------------------------------------------------------------------------------------+\n");
+    printf("+-----------------------------First Fit Memory Management-------------------------------+\n");
+    printf("+---------------------------------------------------------------------------------------+\n");
+
+    do {
+        char process_id[20];
+
+        printf("\n\n\t\tStart a New process : 1\n");
+        printf("\t\tTerminate a process : 2\n");
+        printf("\t\tShow process stack  : 3\n");
+        printf("\t\tExit : -1\n");
+        printf("\t\t+-----------------------+\n");
+        printf("\t\tSelect an option : ");
+        scanf("%d", &option);
+
+
+        switch (option) {
+            case 1: // Start a New process
+                printf("\t\tEnter the ProcessID : ");
+                scanf("%s", process_id);
+//                check the process is already running
+                if (getProcess(&head, process_id) == NULL) {
+                    printf("\t\tEnter the size of the Process : ");
+                    scanf("%d", &process_size);
+                    firstFit(&head, process_id, process_size);
+                } else {
+                    printf("\n\t\t[WARNING] Process is already running.\n");
+                }
+                break;
+            case 2: // Terminate a process
+                printf("\t\tEnter the ProcessID : ");
+                scanf("%s", process_id);
+                removeProcess(&head, process_id);
+                break;
+            case 3: // Show process stack
+                showTasks(&head);
+                break;
+            default:
+                printf("\t\tPlease enter a valid input\n");
+                break;
+        }
+    } while (option != -1);
+
     return 0;
 }
