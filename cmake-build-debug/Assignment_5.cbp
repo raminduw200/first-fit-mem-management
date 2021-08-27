@@ -76,7 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c">
+		<Unit filename="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c">
 			<Option target="Assignment_5"/>
 		</Unit>
 		<Unit filename="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/CMakeLists.txt">

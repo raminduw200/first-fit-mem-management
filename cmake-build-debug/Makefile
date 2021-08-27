@@ -142,32 +142,32 @@ Assignment_5/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/build
 .PHONY : Assignment_5/fast
 
-main.o: main.c.o
+sleeping_barber.o: sleeping_barber.c.o
 
-.PHONY : main.o
+.PHONY : sleeping_barber.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/main.c.o
-.PHONY : main.c.o
+sleeping_barber.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.o
+.PHONY : sleeping_barber.c.o
 
-main.i: main.c.i
+sleeping_barber.i: sleeping_barber.c.i
 
-.PHONY : main.i
+.PHONY : sleeping_barber.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/main.c.i
-.PHONY : main.c.i
+sleeping_barber.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.i
+.PHONY : sleeping_barber.c.i
 
-main.s: main.c.s
+sleeping_barber.s: sleeping_barber.c.s
 
-.PHONY : main.s
+.PHONY : sleeping_barber.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/main.c.s
-.PHONY : main.c.s
+sleeping_barber.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.s
+.PHONY : sleeping_barber.c.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assignment_5"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... sleeping_barber.o"
+	@echo "... sleeping_barber.i"
+	@echo "... sleeping_barber.s"
 .PHONY : help
 
 

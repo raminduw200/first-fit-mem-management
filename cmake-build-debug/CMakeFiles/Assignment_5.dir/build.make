@@ -76,27 +76,27 @@ include CMakeFiles/Assignment_5.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Assignment_5.dir/flags.make
 
-CMakeFiles/Assignment_5.dir/main.c.o: CMakeFiles/Assignment_5.dir/flags.make
-CMakeFiles/Assignment_5.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Assignment_5.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment_5.dir/main.c.o -c "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c"
+CMakeFiles/Assignment_5.dir/sleeping_barber.c.o: CMakeFiles/Assignment_5.dir/flags.make
+CMakeFiles/Assignment_5.dir/sleeping_barber.c.o: ../sleeping_barber.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Assignment_5.dir/sleeping_barber.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assignment_5.dir/sleeping_barber.c.o -c "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c"
 
-CMakeFiles/Assignment_5.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assignment_5.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c" > CMakeFiles/Assignment_5.dir/main.c.i
+CMakeFiles/Assignment_5.dir/sleeping_barber.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assignment_5.dir/sleeping_barber.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c" > CMakeFiles/Assignment_5.dir/sleeping_barber.c.i
 
-CMakeFiles/Assignment_5.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assignment_5.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c" -o CMakeFiles/Assignment_5.dir/main.c.s
+CMakeFiles/Assignment_5.dir/sleeping_barber.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assignment_5.dir/sleeping_barber.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c" -o CMakeFiles/Assignment_5.dir/sleeping_barber.c.s
 
 # Object files for target Assignment_5
 Assignment_5_OBJECTS = \
-"CMakeFiles/Assignment_5.dir/main.c.o"
+"CMakeFiles/Assignment_5.dir/sleeping_barber.c.o"
 
 # External object files for target Assignment_5
 Assignment_5_EXTERNAL_OBJECTS =
 
-Assignment_5: CMakeFiles/Assignment_5.dir/main.c.o
+Assignment_5: CMakeFiles/Assignment_5.dir/sleeping_barber.c.o
 Assignment_5: CMakeFiles/Assignment_5.dir/build.make
 Assignment_5: CMakeFiles/Assignment_5.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Assignment_5"

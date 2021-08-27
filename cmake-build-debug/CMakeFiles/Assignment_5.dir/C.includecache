@@ -6,11 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/main.c
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/queue.c
+string.h
+-
 stdio.h
 -
-malloc.h
+
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c
+queue.c
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/queue.c
+stdio.h
 -
-string.h
+unistd.h
+-
+malloc.h
 -
 
