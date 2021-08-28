@@ -6,6 +6,7 @@
 int front = -1;
 int rear = -1;
 char queue[SIZE][50];
+void printb(char* string_);
 
 /*
  * @function : to check the queue is full
@@ -36,7 +37,8 @@ int isEmpty(){
  */
 void enQueue(char* name_){
     if (isFull()){
-        printf("\t\t[ERROR] Queue is Full. Error occurs while enqueueing new element %s\n", name_);
+        printb("\t\t[ERROR] Queue is Full. Error occurs while enqueueing new element");
+        printf("%s\n", name_);
     } else {
         if (front == -1) ++front;
         rear = (rear+1)%SIZE;
@@ -52,7 +54,7 @@ void enQueue(char* name_){
 char* deQueue(){
     int temp;
     if (isEmpty()){
-        printf("\t\t[ERROR] Queue is Empty.Error occurs while de-queueing the empty queue.\n");
+        printb("\t\t[ERROR] Queue is Empty.Error occurs while de-queueing the empty queue.\n");
         return NULL;
     } else {
         temp = front;
@@ -71,7 +73,7 @@ char* deQueue(){
 void displaySeats(){
     int count=0;
     if (isEmpty()){
-        printf("\t\t[ERROR] Queue is Full. Error occurs while printing the queue\n");
+        printb("\t\t[ERROR] Queue is Full. Error occurs while printing the queue\n");
     } else {
         for (int i = front; i < rear+1; ++i) {
             printf("\t\t+----------------------------------------------+\n");
@@ -80,3 +82,8 @@ void displaySeats(){
         printf("\t\t+----------------------------------------------+\n");
     }
 }
+
+// Method to bold text, errors
+void printb(char* string_){
+    printf("\e[1m%s\e[0m", string_);
+};
