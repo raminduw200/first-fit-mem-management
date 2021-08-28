@@ -2,6 +2,12 @@
 #include <malloc.h>
 #include <string.h>
 
+/*
+ * Name     : Ramindu Walgama
+ * Index    : 201177
+ * Email    : raminduw200@gmail.com
+ */
+
 #define MEMORY 2560
 int remaining_mem = 2560;
 
@@ -189,7 +195,12 @@ int main() {
                 if (getProcess(&head, process_id) == NULL) {
                     printf("\t\tEnter the size of the Process : ");
                     scanf("%d", &process_size);
-                    firstFit(&head, process_id, process_size);
+                    if (process_size > 0)
+                        firstFit(&head, process_id, process_size);
+                    else{
+                        printb("\n\t\t[ERROR] Memory allocation cannot be negative or 0");
+                        continue;
+                    }
                 } else {
                     printb("\n\t\t[WARNING] Process is already running.\n");
                 }
@@ -197,7 +208,10 @@ int main() {
             case 2: // Terminate a process
                 printf("\t\tEnter the ProcessID : ");
                 scanf("%s", process_id);
-                removeProcess(&head, process_id);
+                if (getProcess(&head, process_id) == NULL)
+                    printb("\n\t\t[ERROR] Process does not exists. Termination failed");
+                else
+                    removeProcess(&head, process_id);
                 break;
             case 3: // Show process stack
                 showTasks(&head);

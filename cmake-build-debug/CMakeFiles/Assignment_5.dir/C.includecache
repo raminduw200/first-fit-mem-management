@@ -6,17 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/queue.h
+/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/first_fit_mem.c
+stdio.h
+-
+malloc.h
+-
 string.h
--
-stdio.h
--
-
-/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c
-queue.h
-/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/queue.h
-stdio.h
--
-unistd.h
 -
 
