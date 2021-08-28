@@ -3,6 +3,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+/*
+ * Name     : Ramindu Walgama
+ * Index    : 201177
+ * Email    : raminduw200@gmail.com
+ */
+
 int main(){
     int cust_count;
     char* name;
@@ -10,6 +16,11 @@ int main(){
     do {
         printb("\t\tEnter how many customers need to send to the barber shop (Enter 0 to exit): ");
         scanf("%d", &cust_count);
+
+        if (cust_count < 0){
+            printb("[ERROR] Customer count can not be a negative value.");
+            continue;
+        }
 
         char cust_list[cust_count][100];
 
