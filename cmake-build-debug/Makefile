@@ -142,32 +142,32 @@ Assignment_5/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/build
 .PHONY : Assignment_5/fast
 
-sleeping_barber.o: sleeping_barber.c.o
+first_fit_mem.o: first_fit_mem.c.o
 
-.PHONY : sleeping_barber.o
+.PHONY : first_fit_mem.o
 
 # target to build an object file
-sleeping_barber.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.o
-.PHONY : sleeping_barber.c.o
+first_fit_mem.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/first_fit_mem.c.o
+.PHONY : first_fit_mem.c.o
 
-sleeping_barber.i: sleeping_barber.c.i
+first_fit_mem.i: first_fit_mem.c.i
 
-.PHONY : sleeping_barber.i
+.PHONY : first_fit_mem.i
 
 # target to preprocess a source file
-sleeping_barber.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.i
-.PHONY : sleeping_barber.c.i
+first_fit_mem.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/first_fit_mem.c.i
+.PHONY : first_fit_mem.c.i
 
-sleeping_barber.s: sleeping_barber.c.s
+first_fit_mem.s: first_fit_mem.c.s
 
-.PHONY : sleeping_barber.s
+.PHONY : first_fit_mem.s
 
 # target to generate assembly for a file
-sleeping_barber.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/sleeping_barber.c.s
-.PHONY : sleeping_barber.c.s
+first_fit_mem.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assignment_5.dir/build.make CMakeFiles/Assignment_5.dir/first_fit_mem.c.s
+.PHONY : first_fit_mem.c.s
 
 # Help Target
 help:
@@ -178,9 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assignment_5"
-	@echo "... sleeping_barber.o"
-	@echo "... sleeping_barber.i"
-	@echo "... sleeping_barber.s"
+	@echo "... first_fit_mem.o"
+	@echo "... first_fit_mem.i"
+	@echo "... first_fit_mem.s"
 .PHONY : help
 
 

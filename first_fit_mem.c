@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
-#include "queue.h"
 
 #define MEMORY 2560
 int remaining_mem = 2560;
@@ -95,7 +94,7 @@ void firstFit(struct Node *head_, char *process_id__, int size_) {
 void showTasks(struct Node *head_) {
     struct Node *temp = head_;
     printf("+---------------------------------------------------------------------------------------+\n");
-    printf("|\tStart Address\t|\t\tProcess\t\t|\t\tSize\t\t|\t\t\n");
+    printb("|\tStart Address\t|\t\tProcess\t\t|\t\tSize\t\t|\t\t\n");
     printf("+---------------------------------------------------------------------------------------+\n");
     printf("|\t%dK\t\t|\t%s\t|\t\t%dK\t\t|\t\t\n", head_->start, head_->process_id, head_->size);
     printf("+---------------------------------------------------------------------------------------+\n");

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/sleeping_barber.c" "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles/Assignment_5.dir/sleeping_barber.c.o"
+  "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/first_fit_mem.c" "/media/raminduwalgama/Education/UCSC/Year_1/SCS 1201 DSA/Assignment 5/cmake-build-debug/CMakeFiles/Assignment_5.dir/first_fit_mem.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

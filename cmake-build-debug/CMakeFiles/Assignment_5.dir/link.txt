@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/Assignment_5.dir/sleeping_barber.c.o -o Assignment_5 
+/usr/bin/cc -g CMakeFiles/Assignment_5.dir/first_fit_mem.c.o -o Assignment_5 

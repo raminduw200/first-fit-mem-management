@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void printb(char* string_);
-
 int main(){
     int cust_count;
     char* name;
@@ -59,8 +57,3 @@ int main(){
     } while (cust_count != 0);
     return 0;
 }
-
-// Method to bold text, errors
-void printb(char* string_){
-    printf("\e[1m%s\e[0m", string_);
-};
