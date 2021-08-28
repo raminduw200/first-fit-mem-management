@@ -5,6 +5,8 @@
 #define MEMORY 2560
 int remaining_mem = 2560;
 
+void printb(char* string_);
+
 // Node = Process/ Job
 struct Node {
     char *process_id;
@@ -75,10 +77,10 @@ void firstFit(struct Node *head_, char *process_id__, int size_) {
             new_node->prev = temp;
         }
         else {
-            printf("\n\t\t[ERROR] Ran out of memory.\n");
+            printb("\n\t\t[ERROR] Ran out of memory.\n");
         }
     } else {
-        printf("\n\t\t[ERROR] Ran out of memory.\n");
+        printb("\n\t\t[ERROR] Ran out of memory.\n");
     }
 }
 
@@ -120,7 +122,7 @@ struct Node* getProcess(struct Node *head_, char *process_id_){
 
     while (temp->next != NULL){
         temp = temp->next;
-        if(strcmp(temp->process_id, process_id_) == 0)
+        if(strcmp(temp->process_id, process_id_) == 0) // temp->process_id == process_id_
             return temp;
     }
 
@@ -138,7 +140,7 @@ void removeProcess(struct Node *head_, char* process_id_) {
     struct Node* deleteNode = getProcess(head_, process_id_);
 
     if (deleteNode == head_){
-        printf("\n\t\t[ERROR] Cannot terminate the Operating System.\n");
+        printb("\n\t\t[ERROR] Cannot terminate the Operating System.\n");
     } else if (deleteNode->next !=NULL){
         deleteNode->next->prev = deleteNode->prev;
         deleteNode->prev->next = deleteNode->next;
@@ -164,7 +166,7 @@ int main() {
     head.prev = NULL;
 
     printf("\n+---------------------------------------------------------------------------------------+\n");
-    printf("+-----------------------------First Fit Memory Management-------------------------------+\n");
+    printb("+-----------------------------First Fit Memory Management-------------------------------+\n");
     printf("+---------------------------------------------------------------------------------------+\n");
 
     do {
@@ -189,7 +191,7 @@ int main() {
                     scanf("%d", &process_size);
                     firstFit(&head, process_id, process_size);
                 } else {
-                    printf("\n\t\t[WARNING] Process is already running.\n");
+                    printb("\n\t\t[WARNING] Process is already running.\n");
                 }
                 break;
             case 2: // Terminate a process
@@ -201,10 +203,17 @@ int main() {
                 showTasks(&head);
                 break;
             default:
-                printf("\t\tPlease enter a valid input\n");
+                printb("\t\tPlease enter a valid input\n");
                 break;
         }
     } while (option != -1);
 
     return 0;
 }
+
+// Method to bold text, errors
+void printb(char* string_){
+    printf("\e[1m");
+    printf("%s", string_);
+    printf("\e[0m");
+};
