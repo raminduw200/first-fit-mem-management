@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
+#include "queue.h"
 
 #define MEMORY 2560
 int remaining_mem = 2560;
@@ -20,7 +21,7 @@ struct Node {
  * @function: Insert a new process into the memory according to the first-fit
  *            algorithm. (Insert a node to the linked list)
  * @return  : void
- * @params  : head_       - head of the linked list
+ * @args    : head_       - head of the linked list
  *            process_id_ - process id : example : p1, p2
  *            start_      - starting memory location of the process in the memory
  *                          example: p1 starts after the OS allocation. Start will be the end of the allocated
@@ -89,7 +90,7 @@ void firstFit(struct Node *head_, char *process_id__, int size_) {
  * @function : Print a snapshot of the memory
  * @return   : void
  *             print the snapshot
- * @param    : head_       - head of the linked list
+ * @args     : head_       - head of the linked list
  */
 void showTasks(struct Node *head_) {
     struct Node *temp = head_;
@@ -111,7 +112,7 @@ void showTasks(struct Node *head_) {
  * @function : Check a given process (node) exists
  * @return   : Given process if process exists. (a node)
  *             @type: Node pointer
- * @param    : head_       - head of the linked list
+ * @args    : head_       - head of the linked list
  *             process_id_ - process id : example : p1, p2
  */
 struct Node* getProcess(struct Node *head_, char *process_id_){
@@ -133,7 +134,7 @@ struct Node* getProcess(struct Node *head_, char *process_id_){
 /*
  * @function : Remove a process (Delete a node from the linked list)
  * @return   : void
- * @param    : head_       - head of the linked list
+ * @args    : head_       - head of the linked list
  *             process_id_ - process id : example : p1, p2
  */
 void removeProcess(struct Node *head_, char* process_id_) {
@@ -213,7 +214,5 @@ int main() {
 
 // Method to bold text, errors
 void printb(char* string_){
-    printf("\e[1m");
-    printf("%s", string_);
-    printf("\e[0m");
+    printf("\e[1m%s\e[0m", string_);
 };
